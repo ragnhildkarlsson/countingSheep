@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 		intent.putExtra(EXTRA_MESSAGE, message);
 		startActivity(intent);
 	    // Do something in response to button
+	    // Do else
 	}
 
 }
