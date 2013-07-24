@@ -8,5 +8,15 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_start_screen">StartScreenActivity</string>
+    <string name="start_screen_count_us_in">Count us in!</string>
+    <string name="title_activity_your_animal_lists">YourAnimalLists</string>
+    <string name="your_animal_lists">Your downloaded countinglists</string>
+    <string name="title_activity_counting">CountingActivity</string>
+    <string name="counting_sheeps_label">Sheeps to count!</string>
+    <string name="counting_counted_all">Counted All</string>
+    <string name="title_activity_counted_all">CountedAllActivity</string>
+    <string name="counted_all_count_again">Count Again!</string>
+    <string name="counting_activity_count">Count</string>
 
 </resources>
