@@ -14,9 +14,11 @@
     <string name="your_animal_lists">Your downloaded countinglists</string>
     <string name="title_activity_counting">CountingActivity</string>
     <string name="counting_sheeps_label">Sheeps to count!</string>
-    <string name="counting_counted_all">Counted All</string>
+    <string name="counting_exit">Exit</string>
     <string name="title_activity_counted_all">CountedAllActivity</string>
     <string name="counted_all_count_again">Count Again!</string>
     <string name="counting_activity_count">Count</string>
-
+    <string name="counting_hide_counted">Hide&#10;counted</string>
+	<string name="counting_show_all">Show&#10;all</string>
+    
 </resources>

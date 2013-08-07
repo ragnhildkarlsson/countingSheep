@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/curly_goat"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CountedAllActivity" >
+
+    <Button
+        android:id="@+id/counting_hide_counted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="46dp"
+        android:layout_marginRight="17dp"
+        android:fontFamily="@android:string/dialog_alert_title"
+        android:onClick="countAgain"
+        android:text="@string/counted_all_count_again"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
