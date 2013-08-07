@@ -1,0 +1,11 @@
+To make the esqlite program (local program for reading/deleting data in sheep.db):
+$ make
+
+To delete all data in sheep.db the file deleteall needs to be specified (see file deleteall) and issue the command:
+$ ./bin/esqlite deleteall
+
+To read data into sheep.db issue the command:
+$ ./bin/esqlite file.csv
+
+
+
