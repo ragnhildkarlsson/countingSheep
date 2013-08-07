@@ -3,3 +3,4 @@
 *.o
 sheep_srv/bin/*
 sheep_srv/obj/*
+*.db
