@@ -35,6 +35,7 @@ public class InteractiveBaseAdapter extends BaseAdapter{
 		
 		this.context = context;
 		this.list = list;
+		Collections.sort(list);
 		//Creates a Hashmap with all animals key the animal id and the animal as value
 		allAnimals = new HashMap<Integer, Animal>();
 		for(int i=0;i<list.size();i++){
