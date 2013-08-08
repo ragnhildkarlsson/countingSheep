@@ -19,7 +19,8 @@ public class CountingActivity extends ListActivity {
 	private FarmingDataSource datasource;
 
 	//TODO HARDCODED animal type just for test
-	private int animaltype = 1;
+	private int animaltype_sheep = 1;
+	private int animaltype_lamb =2;
 	private InteractiveBaseAdapter presentArrayAdapter;
 
 	@Override
@@ -40,9 +41,12 @@ public class CountingActivity extends ListActivity {
 		datasource.open();
 
 		Log.w(tag, "opening datsourse sucseed");
-
-		ArrayList<Animal> values = datasource.getAllAnimalsByType(animaltype);
-
+		
+		ArrayList<Animal> values = datasource.getAllAnimalsByType(animaltype_sheep);
+		ArrayList<Animal> lambs = datasource.getAllAnimalsByType(animaltype_lamb);
+		values.addAll(lambs);
+		
+		
 		//presentAnimals = values;
 		Log.w(tag, "returning animals sucseed");
 
@@ -51,6 +55,7 @@ public class CountingActivity extends ListActivity {
 		Log.w(tag, "created second Interactive ArrayAdapter");
 	    setListAdapter(presentArrayAdapter);
 	    Log.w(tag, "set second Interactive ArrayAdapter as Adapter");
+	    getListView().setFastScrollEnabled(true);
 
 	
 	}
