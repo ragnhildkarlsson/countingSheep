@@ -1,6 +1,6 @@
 C=gcc
-CFLAGS=-I /usr/local/include -c
-LDFLAGS=-L /usr/local/lib -lsqlite3
+CFLAGS=-I /usr/include -c
+LDFLAGS=-L /usr/lib -lsqlite3
 OBJDIR=obj
 BINDIR=bin
 SRCDIR=src
