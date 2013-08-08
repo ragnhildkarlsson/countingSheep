@@ -1,3 +1,6 @@
 .classpath
 *.class
-
+*.o
+*.db
+sheep_srv/bin/*
+sheep_srv/obj/*
