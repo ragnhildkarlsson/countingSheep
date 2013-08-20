@@ -170,7 +170,13 @@ public class InteractiveBaseAdapter extends BaseAdapter{
 		}
 		
 	}
-
+	/*
+	 * Return the Hashmap representing all present Animals counting status.
+	 * HashMap key = animal ID, HashMap value = Animal objects  
+	 */
+	public HashMap<Integer, Animal> getAnimalsCountingStatus(){
+		return allAnimals;
+	}
 
 
 } 

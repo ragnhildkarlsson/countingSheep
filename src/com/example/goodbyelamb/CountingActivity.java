@@ -1,27 +1,27 @@
 package com.example.goodbyelamb;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
 
-import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 
 public class CountingActivity extends ListActivity {
 	
 	//For Debugging
-	private String tag = "CountingActivity";
+	private final String tag = "CountingActivity";
 	
 	private FarmingDataSource datasource;
 
 	//TODO HARDCODED animal type just for test
 	private int animaltype_sheep = 1;
 	private int animaltype_lamb =2;
-	private InteractiveBaseAdapter presentArrayAdapter;
+	private InteractiveBaseAdapter presentAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +50,38 @@ public class CountingActivity extends ListActivity {
 		//presentAnimals = values;
 		Log.w(tag, "returning animals sucseed");
 
-		presentArrayAdapter =  new InteractiveBaseAdapter(this,
+		presentAdapter =  new InteractiveBaseAdapter(this,
 		        values);
 		Log.w(tag, "created second Interactive ArrayAdapter");
-	    setListAdapter(presentArrayAdapter);
+	    setListAdapter(presentAdapter);
 	    Log.w(tag, "set second Interactive ArrayAdapter as Adapter");
 	    getListView().setFastScrollEnabled(true);
 
 	
 	}
+	/**
+	 * Saves the counting status for all animals
+	 */
+	@Override
+	protected void onStop() {
+		Log.w(tag,"went in to on stop");
+		
+		HashMap<Integer, Animal> allAnimals = presentAdapter.getAnimalsCountingStatus();
+		Iterator<Integer> it = allAnimals.keySet().iterator();
+		datasource.open();
+		Log.w(tag,"opend datasource again");
+		
+		while (it.hasNext()){
+			Integer id = it.next();
+			
+			Animal animal = allAnimals.get(id);
+			
+			datasource.saveAnimalsCountingStatus(animal);
+		}
+		datasource.close();
+		super.onStop();
+		
+	};
 
 
 	@Override
@@ -73,7 +96,7 @@ public class CountingActivity extends ListActivity {
 	 * Change the content in the list to show all animals   
 	 */
 	public void showAll(View view) {
-	presentArrayAdapter.showAll();
+	presentAdapter.showAll();
 	}
 	
 	/**
@@ -81,7 +104,7 @@ public class CountingActivity extends ListActivity {
 	 * Change the content in the list to show only the uncounted animals
 	 */
 	public void hideCounted(View view){
-		presentArrayAdapter.hideAllCounted();
+		presentAdapter.hideAllCounted();
 	}
 	
 	
@@ -105,6 +128,7 @@ public class CountingActivity extends ListActivity {
 
 	@Override
 	protected void onPause() {
+		Log.w(tag,"went in to on pause");
 		datasource.close();
 		super.onPause();
 	}

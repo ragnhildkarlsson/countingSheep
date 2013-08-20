@@ -82,7 +82,12 @@ public class FarmingDataSource {
 	return animals;
 	
 	}
-	
+	/**
+	 * 
+	 */
+	public void saveAnimalsCountingStatus(Animal animal){
+		dbHelper.saveAnimalCountingStatus(animal);
+	}
 	
 
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.R.string;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -17,6 +18,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
     public class DataBaseHelper extends SQLiteOpenHelper{
+    	
+    private final String tag = "DataBaseHelper" ;
      
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.example.goodbyelamb/databases/";
@@ -108,7 +111,7 @@ import android.util.Log;
      
     try{
     String myPath = DB_PATH + DB_NAME;
-    checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+    checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
      
     }catch(SQLiteException e){
      
@@ -159,7 +162,7 @@ import android.util.Log;
      
     //Open the database
     String myPath = DB_PATH + DB_NAME;
-    myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+    myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
      
     }
      
@@ -189,8 +192,31 @@ import android.util.Log;
     // Add your public helper methods to access and get content from the database.
     // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
     // to you to create adapters for your views.
-     
-	/**
+
+    
+    /**
+     * Save the specified animals couinting status in to the database 
+     */
+    
+    public void saveAnimalCountingStatus(Animal animal){
+    	Log.w(tag, "steped into savAnimalCountingStatus");
+    	ContentValues cv = new ContentValues();
+    	Integer counted;
+    	if(animal.getCounted()){
+    		counted = 1;
+    	}
+    	else{
+    		counted = 0;
+    	}
+    	
+    	cv.put(DataBaseHelper.COLUMN_COUNTED, counted);
+    	Log.w(tag, "prepared data for"+animal.getID());
+    	myDataBase.update(DataBaseHelper.TABLE_ANIMAL, cv, "_id "+ "=" + animal.getID(), null);
+    	Log.w(tag, "executed update for animal"+animal.getID());
+        
+    }
+    
+    /**
 	 * Return an Arraylist with animal objects representing all animals
 	 *  with the specified type in the databse
 	 * @param animalType
@@ -215,6 +241,7 @@ import android.util.Log;
     cursor.close();
     return animals;
   }
+
 	
 private Animal cursorToAnimal(Cursor cursor){
     Animal animal = new Animal(cursor.getInt(cursor.getColumnIndexOrThrow(DataBaseHelper.COLUMN_ID)));

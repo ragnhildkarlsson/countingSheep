@@ -1,4 +1,4 @@
-C=gcc
+CC=gcc
 CFLAGS=-I /usr/include -c
 LDFLAGS=-L /usr/lib -lsqlite3
 OBJDIR=obj
