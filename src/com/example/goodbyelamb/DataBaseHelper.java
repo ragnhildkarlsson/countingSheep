@@ -193,6 +193,18 @@ import android.util.Log;
     // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
     // to you to create adapters for your views.
 
+    /**
+     * Mark all animals in the database as uncounted
+     */
+    
+    public void changeAllAnimalToUncounted(){
+    	ContentValues cv = new ContentValues();
+    	Integer counted = 0;   	
+    	cv.put(DataBaseHelper.COLUMN_COUNTED, counted);   	
+    	myDataBase.update(DataBaseHelper.TABLE_ANIMAL,cv,null,null);
+    	Log.w(tag, "switched to uncounted");
+        
+    }
     
     /**
      * Save the specified animals couinting status in to the database 

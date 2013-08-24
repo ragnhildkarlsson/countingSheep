@@ -83,10 +83,18 @@ public class FarmingDataSource {
 	
 	}
 	/**
+	 * Saves the specified animals counting status
 	 * 
 	 */
 	public void saveAnimalsCountingStatus(Animal animal){
 		dbHelper.saveAnimalCountingStatus(animal);
+	}
+	/**
+	 * Change all present animals counting status to uncounted
+	 */
+	public void markAnimalsToUncounted(){
+		dbHelper.changeAllAnimalToUncounted();
+		
 	}
 	
 

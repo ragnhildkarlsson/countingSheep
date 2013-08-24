@@ -28,14 +28,9 @@ public class CountingActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_counting);
 
-		
-		//TODO take away
-
 		Log.w(tag, "before creating datasource");
 
 		datasource = new FarmingDataSource(this);
-		//TODO take away
-
 		Log.w(tag, "creating datsourse sucseed");
 
 		datasource.open();
@@ -52,15 +47,13 @@ public class CountingActivity extends ListActivity {
 
 		presentAdapter =  new InteractiveBaseAdapter(this,
 		        values);
-		Log.w(tag, "created second Interactive ArrayAdapter");
-	    setListAdapter(presentAdapter);
-	    Log.w(tag, "set second Interactive ArrayAdapter as Adapter");
+		setListAdapter(presentAdapter);
 	    getListView().setFastScrollEnabled(true);
 
 	
 	}
 	/**
-	 * Saves the counting status for all animals
+	 * Saves the counting status for all animals when the activity stops
 	 */
 	@Override
 	protected void onStop() {

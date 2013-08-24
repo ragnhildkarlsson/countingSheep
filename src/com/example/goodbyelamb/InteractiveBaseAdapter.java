@@ -170,6 +170,21 @@ public class InteractiveBaseAdapter extends BaseAdapter{
 		}
 		
 	}
+	/**
+	 * Change the status of all animal to uncounted
+	 */
+	public void setAllAnimalsUncounted(){
+//		ArrayList<Animal>  allAnimals = getListAllAnimals();
+//		Iterator it = allAnimals.iterator();
+//		while(it.hasNext());
+//		it.next()
+//		for(int i =0; i<allAnimals.size(); i++)
+//			i
+//		
+//		list = getListAllAnimals();
+//		
+		
+	}
 	/*
 	 * Return the Hashmap representing all present Animals counting status.
 	 * HashMap key = animal ID, HashMap value = Animal objects  

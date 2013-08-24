@@ -24,6 +24,9 @@ public class CountedAllActivity extends Activity {
 	 *  Starts the StartScreenActivity  
 	 **/
 	public void countAgain(View view) {
+		FarmingDataSource dataSource = new FarmingDataSource(this);
+		dataSource.open();
+		dataSource.markAnimalsToUncounted();
 		Intent intent = new Intent(this, StartScreenActivity.class);
 		startActivity(intent);
 	}
