@@ -31,5 +31,7 @@ public class MainActivity extends Activity {
 	    // Do something in response to button
 	    // Do else
 	}
+	
+	//Visar Eric att en kommentar kan läggas till
 
 }

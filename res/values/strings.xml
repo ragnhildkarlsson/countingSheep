@@ -13,7 +13,7 @@
     <string name="title_activity_your_animal_lists">YourAnimalLists</string>
     <string name="your_animal_lists">Your downloaded countinglists</string>
     <string name="title_activity_counting">CountingActivity</string>
-    <string name="counting_sheeps_label">Sheeps to count!</string>
+    <string name="counting_sheeps_label">Sheep to count!</string>
     <string name="counting_exit">Exit</string>
     <string name="title_activity_counted_all">CountedAllActivity</string>
     <string name="counted_all_count_again">Count Again!</string>
